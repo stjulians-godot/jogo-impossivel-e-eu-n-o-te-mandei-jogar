@@ -10,13 +10,13 @@ radius = 55.0
 height = 274.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipc35"]
-size = Vector2(1162, 131)
+size = Vector2(1915, 131)
 
 [node name="world_1" type="Node2D"]
 
 [node name="Sky" type="Sprite2D" parent="."]
-position = Vector2(581, 326)
-scale = Vector2(1.6275, 1.6275)
+position = Vector2(959.991, 607.25)
+scale = Vector2(2.6891, 3.03375)
 texture = ExtResource("1_66mdf")
 
 [node name="me" type="CharacterBody2D" parent="."]
@@ -35,10 +35,10 @@ one_way_collision_margin = 0.0
 position = Vector2(587, 579)
 
 [node name="Relva" type="Sprite2D" parent="floor"]
-position = Vector2(-5, -227)
-scale = Vector2(0.5815, 0.432179)
+position = Vector2(372.25, 342)
+scale = Vector2(0.96475, 0.432179)
 texture = ExtResource("4_ohg7t")
 
 [node name="collision" type="CollisionShape2D" parent="floor"]
-position = Vector2(-6, 6.5)
+position = Vector2(373.5, 567)
 shape = SubResource("RectangleShape2D_ipc35")
