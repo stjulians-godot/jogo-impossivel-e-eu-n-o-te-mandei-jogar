@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhn1l1qkk237d"]
+
+[ext_resource type="Texture2D" uid="uid://dy3nm72n6t2am" path="res://sky.jpg" id="1_66mdf"]
+[ext_resource type="Script" path="res://me.gd" id="1_jrib1"]
+[ext_resource type="Texture2D" uid="uid://dk3whvtxrgxwb" path="res://sonic.png" id="2_hjji7"]
+[ext_resource type="Texture2D" uid="uid://cgu1e3sgpbpvx" path="res://relva.png" id="4_ohg7t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hdr8i"]
+radius = 55.0
+height = 274.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipc35"]
+size = Vector2(1162, 131)
+
+[node name="world_1" type="Node2D"]
+
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(581, 326)
+scale = Vector2(1.6275, 1.6275)
+texture = ExtResource("1_66mdf")
+
+[node name="me" type="CharacterBody2D" parent="."]
+position = Vector2(451, 266)
+scale = Vector2(0.35, 0.35)
+script = ExtResource("1_jrib1")
+
+[node name="sprite" type="Sprite2D" parent="me"]
+texture = ExtResource("2_hjji7")
+
+[node name="collision" type="CollisionShape2D" parent="me"]
+shape = SubResource("CapsuleShape2D_hdr8i")
+one_way_collision_margin = 0.0
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(587, 579)
+
+[node name="Relva" type="Sprite2D" parent="floor"]
+position = Vector2(-5, -227)
+scale = Vector2(0.5815, 0.432179)
+texture = ExtResource("4_ohg7t")
+
+[node name="collision" type="CollisionShape2D" parent="floor"]
+position = Vector2(-6, 6.5)
+shape = SubResource("RectangleShape2D_ipc35")
