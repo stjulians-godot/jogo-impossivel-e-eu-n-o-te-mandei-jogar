@@ -1,8 +1,7 @@
-[gd_scene load_steps=56 format=3 uid="uid://dhn1l1qkk237d"]
+[gd_scene load_steps=55 format=3 uid="uid://dhn1l1qkk237d"]
 
 [ext_resource type="Texture2D" uid="uid://dy3nm72n6t2am" path="res://sky.jpg" id="1_66mdf"]
 [ext_resource type="Script" path="res://me.gd" id="1_jrib1"]
-[ext_resource type="Texture2D" uid="uid://dk3whvtxrgxwb" path="res://sonic.png" id="2_hjji7"]
 [ext_resource type="Texture2D" uid="uid://crqxpococqn40" path="res://Sonic Spritesheet.png" id="4_efc61"]
 [ext_resource type="Texture2D" uid="uid://cgu1e3sgpbpvx" path="res://relva.png" id="4_ohg7t"]
 
@@ -382,20 +381,31 @@ position = Vector2(451, 266)
 scale = Vector2(0.35, 0.35)
 script = ExtResource("1_jrib1")
 
-[node name="sprite" type="Sprite2D" parent="me"]
-visible = false
-texture = ExtResource("2_hjji7")
-
 [node name="collision" type="CollisionShape2D" parent="me"]
 shape = SubResource("CapsuleShape2D_hdr8i")
 one_way_collision_margin = 0.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="me"]
+[node name="Area" type="Area2D" parent="me"]
+position = Vector2(-1288.57, -760)
+scale = Vector2(2.85714, 2.85714)
+
+[node name="Collision" type="CollisionShape2D" parent="me/Area"]
+position = Vector2(0, -6.10352e-05)
+scale = Vector2(1, 1)
+
+[node name="Animations" type="AnimatedSprite2D" parent="me"]
 scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_3kvad")
-animation = &"running 4"
-autoplay = "running 1"
-frame_progress = 0.334513
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.115871
+
+[node name="CanvasLayer" type="CanvasLayer" parent="me"]
+
+[node name="Label" type="Label" parent="me/CanvasLayer"]
+offset_top = 3.05176e-05
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(587, -2)
