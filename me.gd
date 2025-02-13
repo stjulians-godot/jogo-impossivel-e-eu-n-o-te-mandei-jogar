@@ -15,6 +15,10 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
+	if direction > 0:
+		animations.scale.x = 7
+	elif direction < 0:
+		animations.scale.x = -7
 	if direction:
 		velocity.x = direction * SPEED
 		animations.play('running 1')
@@ -23,3 +27,7 @@ func _physics_process(delta: float) -> void:
 		animations.play('idle')
 
 	move_and_slide()  
+
+
+func _on_area_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

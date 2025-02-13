@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dhn1l1qkk237d"]
+[gd_scene load_steps=56 format=3 uid="uid://dhn1l1qkk237d"]
 
 [ext_resource type="Texture2D" uid="uid://dy3nm72n6t2am" path="res://sky.jpg" id="1_66mdf"]
 [ext_resource type="Script" path="res://me.gd" id="1_jrib1"]
@@ -366,13 +366,16 @@ animations = [{
 "speed": 16.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_e6q1d"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipc35"]
 size = Vector2(1915, 131)
 
 [node name="world_1" type="Node2D"]
+position = Vector2(-5, -2)
 
 [node name="Sky" type="Sprite2D" parent="."]
-position = Vector2(575.991, 315.25)
+position = Vector2(583, 315)
 scale = Vector2(1.61347, 1.57375)
 texture = ExtResource("1_66mdf")
 
@@ -385,20 +388,20 @@ script = ExtResource("1_jrib1")
 shape = SubResource("CapsuleShape2D_hdr8i")
 one_way_collision_margin = 0.0
 
-[node name="Area" type="Area2D" parent="me"]
-position = Vector2(-1288.57, -760)
-scale = Vector2(2.85714, 2.85714)
-
-[node name="Collision" type="CollisionShape2D" parent="me/Area"]
-position = Vector2(0, -6.10352e-05)
-scale = Vector2(1, 1)
-
 [node name="Animations" type="AnimatedSprite2D" parent="me"]
 scale = Vector2(7, 7)
 sprite_frames = SubResource("SpriteFrames_3kvad")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.115871
+
+[node name="Area" type="Area2D" parent="me"]
+position = Vector2(-1288.57, -760)
+scale = Vector2(2.85714, 2.85714)
+
+[node name="Collision" type="CollisionShape2D" parent="me/Area"]
+position = Vector2(0, -6.10352e-05)
+shape = SubResource("CircleShape2D_e6q1d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="me"]
 
@@ -418,3 +421,5 @@ texture = ExtResource("4_ohg7t")
 [node name="collision" type="CollisionShape2D" parent="floor"]
 position = Vector2(373.5, 567)
 shape = SubResource("RectangleShape2D_ipc35")
+
+[connection signal="body_entered" from="me/Area" to="me" method="_on_area_body_entered"]
